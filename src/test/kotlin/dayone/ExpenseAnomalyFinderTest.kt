@@ -14,7 +14,7 @@ class ExpenseAnomalyFinderTest {
         val expenses = arrayListOf(1721, 979, 366, 299, 675, 1456)
         val targetValue = 2020
 
-        val actual = expenseAnomalyFinder.findAnomalousValues(expenses, targetValue)
+        val actual = expenseAnomalyFinder.findAnomalousValues(expenses, targetValue, 2)
 
         assertThat(actual, containsInAnyOrder(299, 1721))
     }
@@ -31,9 +31,33 @@ class ExpenseAnomalyFinderTest {
         val integerList = fileLoader.createIntegerListFromFile("accounting-expenses-input.txt")
 
         val expenseAnomalyFinder = ExpenseAnomalyFinder()
-        val anomalousValues = expenseAnomalyFinder.findAnomalousValues(integerList, 2020)
+        val anomalousValues = expenseAnomalyFinder.findAnomalousValues(integerList, 2020, 2)
         val solution = expenseAnomalyFinder.findMultipleOfAnomalies(anomalousValues)
         println("Solution to part 1 is $solution.")
         assertThat(solution, equalTo(989824))
+    }
+
+    @Test
+    internal fun `should find n sized list of values that sum to target value`() {
+        val expenseAnomalyFinder = ExpenseAnomalyFinder()
+        val expenses = arrayListOf(1721, 979, 366, 299, 675, 1456)
+        val targetValue = 2020
+        val n = 3
+
+        val actual = expenseAnomalyFinder.findAnomalousValues(expenses, targetValue, n)
+
+        assertThat(actual, containsInAnyOrder(979, 366, 675))
+    }
+
+    @Test
+    internal fun `part 2 solution`() {
+        val fileLoader = FileLoader()
+        val integerList = fileLoader.createIntegerListFromFile("accounting-expenses-input.txt")
+
+        val expenseAnomalyFinder = ExpenseAnomalyFinder()
+        val anomalousValues = expenseAnomalyFinder.findAnomalousValues(integerList, 2020, 3)
+        val solution = expenseAnomalyFinder.findMultipleOfAnomalies(anomalousValues)
+        println("Solution to part 1 is $solution.")
+        assertThat(solution, equalTo(66432240))
     }
 }

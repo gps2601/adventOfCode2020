@@ -1,5 +1,7 @@
 package daytwo.policies
 
+import daytwo.PasswordEntry
+
 interface PasswordPolicy {
-    fun isValid(passwordEntry: String): Boolean
+    fun isValid(passwordEntry: PasswordEntry): Boolean
 }

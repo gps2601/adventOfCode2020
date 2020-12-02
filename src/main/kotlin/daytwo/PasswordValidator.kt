@@ -1,10 +1,7 @@
 package daytwo
 
-import daytwo.policies.OldJobPolicy
 import daytwo.policies.PasswordPolicy
 
-class PasswordValidator {
-    fun isValid(passwordEntry: String, policy: PasswordPolicy = OldJobPolicy()): Boolean {
-        return policy.isValid(passwordEntry)
-    }
+class PasswordValidator(private val policy: PasswordPolicy) {
+    fun validate(passwordEntry: String) = policy.isValid(passwordEntry)
 }

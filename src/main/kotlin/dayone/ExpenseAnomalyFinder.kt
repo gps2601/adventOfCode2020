@@ -9,7 +9,7 @@ class ExpenseAnomalyFinder {
         return expenseList.filter { it.sum() == targetValue }.first()
     }
 
-    fun findMultipleOfAnomalies(values: List<Int>): Int {
+    fun multipleOfAnomalies(values: List<Int>): Int {
         return values.reduce{ acc, i ->  acc * i }
     }
 

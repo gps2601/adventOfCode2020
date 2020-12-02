@@ -8,4 +8,3 @@ class PasswordValidator {
         return policy.isValid(passwordEntry)
     }
 }
-

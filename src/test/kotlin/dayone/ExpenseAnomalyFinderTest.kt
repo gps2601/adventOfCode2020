@@ -29,7 +29,7 @@ class ExpenseAnomalyFinderTest {
     @Test
     internal fun `part 1 solution`() {
         val fileLoader = FileLoader()
-        val integerList = fileLoader.createIntegerListFromFile("accounting-expenses-input.txt")
+        val integerList = fileLoader.createIntegerListFromFile("dayone/accounting-expenses-input.txt")
 
         val expenseAnomalyFinder = ExpenseAnomalyFinder()
         val anomalousValues = expenseAnomalyFinder.findAnomalousValues(integerList, 2020, 2)
@@ -53,7 +53,7 @@ class ExpenseAnomalyFinderTest {
     @Test
     internal fun `part 2 solution`() {
         val fileLoader = FileLoader()
-        val integerList = fileLoader.createIntegerListFromFile("accounting-expenses-input.txt")
+        val integerList = fileLoader.createIntegerListFromFile("dayone/accounting-expenses-input.txt")
 
         val expenseAnomalyFinder = ExpenseAnomalyFinder()
         val anomalousValues = expenseAnomalyFinder.findAnomalousValues(integerList, 2020, 3)

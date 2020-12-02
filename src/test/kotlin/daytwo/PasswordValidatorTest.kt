@@ -28,7 +28,7 @@ class PasswordValidatorTest {
 
     @Test
     internal fun `part 1 solution`() {
-        val passwords = fileLoader.createLinesFrom("passwords.txt")
+        val passwords = fileLoader.createLinesFrom("daytwo/passwords.txt")
 
         val validPasswords = passwords.filter { validator.isValid(it) }.count()
 
@@ -52,7 +52,7 @@ class PasswordValidatorTest {
 
     @Test
     internal fun `part two solution`() {
-        val passwords = fileLoader.createLinesFrom("passwords.txt")
+        val passwords = fileLoader.createLinesFrom("daytwo/passwords.txt")
         val validPasswords = passwords.filter { validator.isValid(it, OfficialTobogganPolicy()) }.count()
 
         assertEquals(validPasswords, 346)

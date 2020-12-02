@@ -1,5 +1,6 @@
 package dayone
 
+import FileLoader
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.Matchers.containsInAnyOrder
 import org.hamcrest.Matchers.equalTo

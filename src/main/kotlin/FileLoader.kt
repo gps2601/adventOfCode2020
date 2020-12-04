@@ -14,6 +14,10 @@ class FileLoader {
         return createFile(fileName).readLines()
     }
 
+    fun createLinesFromDoubleLineBreaked(fileName: String): List<String> {
+        return createFile(fileName).readText().split("\n\n")
+    }
+
     private fun createFile(fileName: String): File {
         val res: URL = javaClass.classLoader.getResource(fileName)!!
         return Paths.get(res.toURI()).toFile()

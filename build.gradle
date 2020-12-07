@@ -19,6 +19,7 @@ dependencies {
 
     compile 'com.google.guava:guava:27.0.1-jre'
     compile 'com.github.dpaukov:combinatoricslib3:3.3.0'
+    compile group: 'org.jgrapht', name: 'jgrapht-core', version: '1.5.0'
 }
 
 test {

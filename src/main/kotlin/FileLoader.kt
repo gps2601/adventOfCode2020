@@ -10,6 +10,13 @@ class FileLoader {
         return mutableIntegerList
     }
 
+    fun createLongListFromFile(fileName: String): MutableList<Long> {
+        val file: File = createFile(fileName)
+        val mutableIntegerList = mutableListOf<Long>()
+        file.forEachLine { mutableIntegerList.add(it.toLong()) }
+        return mutableIntegerList
+    }
+
     fun createLinesFrom(fileName: String): List<String> {
         return createFile(fileName).readLines()
     }

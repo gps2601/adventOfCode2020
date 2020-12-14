@@ -4,7 +4,6 @@ import FileLoader
 import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.jupiter.api.Test
-import org.paukov.combinatorics3.Generator
 import org.paukov.combinatorics3.Generator.*
 import java.lang.Exception
 
@@ -48,18 +47,18 @@ class AddressDecoderTest {
                 val (mem, newValue) = it.split(" = ")
                 val parsedMem = mem.removePrefix("mem[").removeSuffix("]").toInt().to36bitString()
                 val maskedValue = applyMask(parsedMem, mask)
-                val combinations = permutation('0', '1').withRepetitions(maskedValue.filter { it == 'X' }.count())
-                combinations.map { comb ->
+                val permutations = permutation('0', '1').withRepetitions(maskedValue.filter { it == 'X' }.count())
+                permutations.map { perm ->
                     val maskedValueArray = maskedValue.toCharArray()
                     var index = 0
                     maskedValueArray.indices.forEach { i ->
                         if (maskedValueArray[i] == 'X') {
-                            maskedValueArray[i] = comb[index]
+                            maskedValueArray[i] = perm[index]
                             index++
                         }
                     }
                     maskedValueArray.joinToString("").toLong(2)
-                }.forEach { it3 -> memory[it3] = newValue.toLong() }
+                }.forEach { memory[it] = newValue.toLong() }
             }
         }
 

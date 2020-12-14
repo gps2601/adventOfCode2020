@@ -9,13 +9,12 @@ import java.lang.Exception
 
 class AddressDecoderTest {
     val fileLoader = FileLoader()
+    val input = fileLoader.createLinesFrom("day14/input.txt")
 
     @Test
     fun `part 1 solution`() {
-        val input = fileLoader.createLinesFrom("day14/input.txt")
         val memory = hashMapOf<Int, String>()
         var mask = "empty"
-
         input.forEach {
             if(it.startsWith("mask")) {
                 mask = it.split(" ").last()
@@ -39,10 +38,9 @@ class AddressDecoderTest {
 
     @Test
     fun `part 2 solution`() {
-        val input = fileLoader.createLinesFrom("day14/input.txt")
         val memory = hashMapOf<Long, Long>()
         var mask = "empty"
-        input.forEach {
+        input.forEach { it ->
             if(it.startsWith("mask")) {
                 mask = it.split(" ").last()
             } else {

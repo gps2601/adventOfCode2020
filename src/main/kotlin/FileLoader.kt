@@ -25,6 +25,10 @@ class FileLoader {
         return createFile(fileName).readText().split("\n\n")
     }
 
+    fun createInput(fileName: String): String {
+        return createFile(fileName).readText()
+    }
+
     private fun createFile(fileName: String): File {
         val res: URL = javaClass.classLoader.getResource(fileName)!!
         return Paths.get(res.toURI()).toFile()
